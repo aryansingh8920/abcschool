@@ -186,7 +186,7 @@ section h2{
 .gallery-track{
   display:flex;
   gap:10px;
-  animation:scroll 12s linear infinite;
+  animation:slideshow 20s linear infinite;
 }
 .gallery-track img{
   width:300px;
@@ -194,9 +194,9 @@ section h2{
   object-fit:cover;
   border-radius:10px;
 }
-@keyframes scroll{
+@keyframes slideshow{
   0%{transform:translateX(0);}
-  100%{transform:translateX(-50%);}
+  100%{transform:translateX(-100%);}
 }
 
 /* FEE TABLE */
@@ -442,4 +442,5 @@ menuBtn.onclick=()=>navLinks.classList.toggle("show");
 
 </body>
 </html>
+
 
