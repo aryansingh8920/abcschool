@@ -186,7 +186,7 @@ section h2{
 .gallery-track{
   display:flex;
   gap:10px;
-  animation:slideshow 15s linear infinite;
+  animation:slideshow 30s linear infinite;
 }
 .gallery-track img{
   width:300px;
@@ -194,15 +194,18 @@ section h2{
   object-fit:cover;
   border-radius:10px;
 }
-@keyframes slideshow{
-  0%{transform:translateX(0);}
-  10%{transform:translateX(0);}
-  30%{transform:translateX(-100%);}
-  50%{transform:translateX(-100%);}
-  60%{transform:translateX(-200%);}
-  80%{transform:translateX(-200%);}
-  90%{transform:translateX(-300%);}
-  100%{transform:translateX(-300%);}
+@keyframes slideshow {
+  0%, 7%    { transform: translateX(0); }
+  10%, 17%  { transform: translateX(-100%); }
+  20%, 27%  { transform: translateX(-200%); }
+  30%, 37%  { transform: translateX(-300%); }
+  40%, 47%  { transform: translateX(-400%); }
+  50%, 57%  { transform: translateX(-500%); }
+  60%, 67%  { transform: translateX(-600%); }
+  70%, 77%  { transform: translateX(-700%); }
+  80%, 87%  { transform: translateX(-800%); }
+  90%, 97%  { transform: translateX(-900%); }
+  100%      { transform: translateX(-900%); } 
 }
 
 /* FEE TABLE */
@@ -448,6 +451,7 @@ menuBtn.onclick=()=>navLinks.classList.toggle("show");
 
 </body>
 </html>
+
 
 
 
