@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ABC Public School</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif;}
+html{scroll-behavior:smooth;}
+body{color:#222;background:#fff;}
+
+/* NOTICE */
+.notice{
+  background:#ffd700;
+  text-align:center;
+  padding:8px;
+  font-weight:bold;
+}
+
+/* HEADER */
+header{
+  background:#0b3d91;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:12px 6%;
+}
+.logo-area{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.logo-area img{width:45px;height:45px;}
+.logo-area span{color:#fff;font-size:22px;font-weight:bold;}
+
+.nav-links{
+  list-style:none;
+  display:flex;
+  gap:18px;
+}
+.nav-links a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:bold;
+}
+.nav-links a:hover{color:#ffd700;}
+.menu-btn{
+  display:none;
+  font-size:26px;
+  color:#fff;
+  cursor:pointer;
+}
+
+/* HERO */
+.hero{height:80vh;position:relative;overflow:hidden;}
+.slides img{
+  width:100%;
+  height:80vh;
+  object-fit:cover;
+  display:none;
+}
+.slides img.active{display:block;}
+.hero-text{
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  background:rgba(0,0,0,0.6);
+  color:#fff;
+  padding:35px;
+  text-align:center;
+  border-radius:10px;
+}
+.hero-text h2{font-size:36px;}
+.hero-text p{margin:15px 0;}
+.hero-text a{
+  padding:12px 30px;
+  background:#ffd700;
+  color:#000;
+  text-decoration:none;
+  border-radius:30px;
+  font-weight:bold;
+}
+
+/* SECTIONS */
+section{padding:60px 8%;}
+section h2{
+  text-align:center;
+  color:#0b3d91;
+  margin-bottom:30px;
+}
+.about,.academics,.achievements,.facilities,.fee,.contact{
+  background:#f4f6f8;
+  margin-bottom:20px;
+}
+
+/* ABOUT */
+.about p{
+  max-width:950px;
+  margin:auto;
+  text-align:center;
+  line-height:1.7;
+}
+.imgs{
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  margin-top:30px;
+  flex-wrap:wrap;
+}
+.imgs img{
+  width:260px;
+  height:260px;
+  object-fit:cover;
+  border-radius:50%;
+}
+.imgs span{
+  display:block;
+  text-align:center;
+  margin-top:10px;
+  font-weight:bold;
+}
+
+/* ACADEMICS */
+.academics h3{color:#0b3d91;margin-top:20px;}
+.academics p{
+  max-width:950px;
+  margin:10px auto;
+  line-height:1.7;
+}
+.academics ul{
+  max-width:900px;
+  margin:15px auto;
+  padding-left:20px;
+}
+.academics li{margin-bottom:8px;}
+
+/* CARDS */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+.card{
+  background:#fff;
+  padding:20px;
+  border-radius:10px;
+  text-align:center;
+  box-shadow:0 5px 10px rgba(0,0,0,.1);
+}
+.card img{
+  width:100%;
+  height:160px;
+  object-fit:cover;
+  border-radius:10px;
+  margin-bottom:10px;
+}
+
+/* FACILITIES */
+.facility-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+.facility{
+  background:#fff;
+  padding:15px;
+  border-radius:10px;
+  text-align:center;
+}
+.facility img{
+  width:100%;
+  height:160px;
+  object-fit:cover;
+  border-radius:10px;
+}
+
+/* GALLERY */
+.gallery-track{
+  display:flex;
+  gap:10px;
+  animation:scroll 25s linear infinite;
+}
+.gallery-track img{
+  width:300px;
+  height:200px;
+  object-fit:cover;
+  border-radius:10px;
+}
+@keyframes scroll{
+  0%{transform:translateX(0);}
+  100%{transform:translateX(-50%);}
+}
+
+/* FEE TABLE */
+.fee-table{
+  width:100%;
+  max-width:1000px;
+  margin:30px auto;
+  border-collapse:collapse;
+  background:#fff;
+  font-size:20px;
+}
+.fee-table th,.fee-table td{
+  border:2px solid #0b3d91;
+  padding:18px;
+  text-align:center;
+}
+.fee-table th{
+  background:#0b3d91;
+  color:#fff;
+}
+
+/* CONTACT */
+.contact p{text-align:center;line-height:1.7;}
+.social-links{text-align:center;margin-top:20px;}
+.social-links a{
+  margin:0 12px;
+  font-size:30px;
+  color:#0b3d91;
+}
+.map{margin-top:30px;}
+.map iframe{width:100%;height:350px;border:0;}
+
+/* WHATSAPP */
+.whatsapp-float{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25d366;
+  width:55px;
+  height:55px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-size:30px;
+}
+
+/* FOOTER */
+footer{
+  background:#0b3d91;
+  color:#fff;
+  text-align:center;
+  padding:20px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .menu-btn{display:block;}
+  .nav-links{
+    position:absolute;
+    top:70px;
+    left:0;
+    width:100%;
+    background:#0b3d91;
+    flex-direction:column;
+    display:none;
+    padding:20px 0;
+  }
+  .nav-links.show{display:flex;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="notice">🎓 Admissions Open 2026–27</div>
+
+<header>
+<nav>
+  <div class="logo-area">
+    <img src="schoollogo.webp">
+    <span>ABC Public School</span>
+  </div>
+  <i class="fas fa-bars menu-btn" id="menuBtn"></i>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#academics">Academics</a></li>
+    <li><a href="#achievements">Achievements</a></li>
+    <li><a href="#facilities">Facilities</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#fee">Fee</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+<div class="slides">
+  <img src="building2.jpg" class="active">
+  <img src="children.jpg">
+  <img src="children3.webp">
+  <img src="children4.webp">
+  <img src="children2.jpeg">
+</div>
+<div class="hero-text">
+  <h2>Welcome to ABC Public School</h2>
+  <p>Excellence • Discipline • Innovation</p>
+  <a href="#contact">Contact Us</a>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+<h2>About Us</h2>
+<p>
+ABC Public School is a co-educational institution dedicated to providing quality education in a safe, disciplined, and nurturing environment.
+The school focuses on academic excellence, moral values, physical development, and creative learning. With experienced teachers , modern infrastucture , and a balanced blend of academics and co-curricular activities , we strive to bring out the best in every learner. Our school fosters a culture of respect , responsibility , and resilience , empowering students to grow into lifelong learners and socially responsible individuals. 
+</p>
+<div class="imgs">
+  <div><img src="owner.jpg"><span>Owner – Mr. Shaurya Singh</span></div>
+  <div><img src="scldirector.jpg"><span>Director – Mr. Aditya Aggarawal</span></div>
+</div>
+</section>
+
+<!-- ACADEMICS (FULL TEXT) -->
+<section class="academics" id="academics">
+<h2>Academics</h2>
+
+<h3>Curriculum & Board Affiliation</h3>
+<p>
+ABC Public School follows the CBSE curriculum and strictly adheres to the guidelines issued by the Central Board of Secondary Education.
+The school is an English-medium institution and emphasizes conceptual clarity, analytical thinking, and practical application of knowledge.
+</p>
+
+<h3>Teaching Methodology</h3>
+<p>
+Our teaching approach is student-centric and aligned with the New Education Policy (NEP).
+Teachers use smart classrooms, digital tools, activity-based learning, and regular assessments to ensure effective learning outcomes.
+</p>
+
+<ul>
+<li>Smart classrooms and digital learning resources</li>
+<li>Regular tests, assignments, and feedback</li>
+<li>Project-based and experiential learning</li>
+<li>Special doubt-clearing and remedial classes</li>
+<li>Preparation for competitive and board examinations</li>
+</ul>
+
+<h3>Evaluation System</h3>
+<p>
+The school follows Continuous and Comprehensive Evaluation (CCE) to assess students on scholastic and co-scholastic parameters,
+ensuring balanced academic and personal growth.
+</p>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section class="achievements" id="achievements">
+<h2>Achievements</h2>
+<div class="cards">
+  <div class="card"><img src="10th.jpeg"><h3>100% Board Results</h3></div>
+  <div class="card"><img src="champions.jpeg"><h3>Sports Champions</h3></div>
+  <div class="card"><img src="olympiad.jpeg"><h3>Olympiad Excellence</h3></div>
+</div>
+</section>
+
+<!-- FACILITIES -->
+<section class="facilities" id="facilities">
+<h2>Facilities</h2>
+<div class="facility-grid">
+  <div class="facility"><img src="smart.jpeg"><p>Smart Classrooms</p></div>
+  <div class="facility"><img src="lab.jpg"><p>Science Laboratories</p></div>
+  <div class="facility"><img src="lib.jpg"><p>Library</p></div>
+  <div class="facility"><img src="ground.jpg"><p>Sports Ground</p></div>
+</div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+<h2>Gallery</h2>
+<div class="gallery-track">
+<img src="st1.webp"><img src="st2.jpg"><img src="st3.jpg">
+<img src="st4.webp"><img src="st5.jpg"><img src="st6.jpg">
+</div>
+</section>
+
+<!-- FEE -->
+<section class="fee" id="fee">
+<h2>Fee Structure</h2>
+<table class="fee-table">
+<tr><th>Class</th><th>Admission Fee (₹)</th><th>Monthly Fee (₹)</th></tr>
+<tr><td>Nursery – KG</td><td>5,000</td><td>1,200</td></tr>
+<tr><td>Class I – V</td><td>6,000</td><td>1,500</td></tr>
+<tr><td>Class VI – VIII</td><td>7,000</td><td>1,800</td></tr>
+<tr><td>Class IX – X</td><td>8,000</td><td>2,200</td></tr>
+<tr><td>Class XI (Science)</td><td>10,000</td><td>3,000</td></tr>
+<tr><td>Class XII (Science)</td><td>10,000</td><td>3,200</td></tr>
+</table>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+<h2>Contact Us</h2>
+<p>
+📍 Main Road, City<br>
+📞 +91 98765 43210<br>
+📞 +91 95765 63210
+📧 abcpublicschool@email.com
+</p>
+
+<div class="social-links">
+<a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a>
+<a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+<a href="https://www.youtube.com"><i class="fab fa-youtube"></i></a>
+</div>
+
+<div class="map">
+<iframe src="https://www.google.com/maps?q=school&output=embed"></iframe>
+</div>
+</section>
+
+<footer>
+© 2026 ABC Public School | All Rights Reserved
+</footer>
+
+<a href="https://wa.me/918920807702" class="whatsapp-float">
+<i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+let slides=document.querySelectorAll(".slides img");
+let index=0;
+setInterval(()=>{
+  slides[index].classList.remove("active");
+  index=(index+1)%slides.length;
+  slides[index].classList.add("active");
+},3000);
+
+menuBtn.onclick=()=>navLinks.classList.toggle("show");
+</script>
+
+</body>
+</html>
