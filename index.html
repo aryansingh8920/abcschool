@@ -186,7 +186,7 @@ section h2{
 .gallery-track{
   display:flex;
   gap:10px;
-  animation:scroll 16s linear 1s infinite;
+  animation:scroll 15s linear  infinite;
 }
 .gallery-track img{
   width:300px;
@@ -195,17 +195,13 @@ section h2{
   border-radius:10px;
 }
 @keyframes scroll {
-  0%, 7%    { transform: translateX(0); }
-  10%, 17%  { transform: translateX(-50%); }
-  20%, 27%  { transform: translateX(-100%); }
-  30%, 37%  { transform: translateX(-150%); }
-  40%, 47%  { transform: translateX(-200%); }
-  50%, 57%  { transform: translateX(-2500%); }
-  60%, 67%  { transform: translateX(-300%); }
-  70%, 77%  { transform: translateX(-350%); }
-  80%, 87%  { transform: translateX(-400%); }
-  90%, 97%  { transform: translateX(-450%); }
-  100%      { transform: translateX(-500%); } 
+from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+  
 }
 
 /* FEE TABLE */
@@ -453,6 +449,7 @@ menuBtn.onclick=()=>navLinks.classList.toggle("show");
 
 </body>
 </html>
+
 
 
 
